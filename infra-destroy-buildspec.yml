@@ -1,0 +1,11 @@
+version: 0.2
+
+phases:
+  install:  
+    commands:
+      - echo "installing prerequisites"
+      - echo $(scripts/install.sh)
+  build:
+    commands:
+      - echo "terraform destroy"
+      - echo $(terraform destroy -auto-approve)

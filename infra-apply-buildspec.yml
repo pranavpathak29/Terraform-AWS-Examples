@@ -1,0 +1,15 @@
+version: 0.2
+
+phases:
+  install:
+    commands:
+      - echo "installing prerequisites"
+      - echo $(scripts/install.sh)
+  pre_build:
+    commands:
+      - echo "terraform plan"
+      - echo $(terraform plan)
+  build:
+    commands:
+      - echo "terraform apply"
+      - echo $(terraform apply -auto-approve)

@@ -3,15 +3,11 @@ version: 0.2
 phases:
   install:
     commands:
-      - echo "installing ec2 sample project"
-      - sh scripts/install.sh
-  pre_build:
-    commands:
-      - echo "pre-build ec2 sample project"
+      - echo "installing prerequisites"
+      - echo "AccessKey ${AccessKey}"
+      - echo "Secret ${Secret}"
   build:
     commands:
       - echo "build ec2 sample project"
+      - echo ${cat src/index.html}
       - grep -FQ "EC2" src/index.html
-  post_build:
-    commands:
-      - echo "post-build ec2 sample project"
