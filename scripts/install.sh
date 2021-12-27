@@ -1,11 +1,11 @@
 #Install Terraform
 echo "Install terraform"
-sudo yum install -y yum-utils
+yum install -y yum-utils
 
-sudo yum-config-manager --add-repo https://rpm.releases.hashicorp.com/AmazonLinux/hashicorp.repo
+yum-config-manager --add-repo https://rpm.releases.hashicorp.com/AmazonLinux/hashicorp.repo
 
-sudo yum -y install terraform
+yum -y install terraform
 
-terraform --version
+echo ${terraform --version}
 
-echo ${terraform init}
+echo ${terraform -chdir=terraform init}
