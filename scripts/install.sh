@@ -6,4 +6,4 @@ yum-config-manager --add-repo https://rpm.releases.hashicorp.com/AmazonLinux/has
 
 yum -y install terraform
 
-echo ${terraform --version}
+terraform --version

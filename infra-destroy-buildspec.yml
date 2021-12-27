@@ -6,8 +6,12 @@ phases:
       - echo "installing prerequisites"
       - chmod -R 777 ./
       - echo $(scripts/install.sh)
-      - echo ${terraform -chdir=terraform init}
+  pre_build:
+    commands:
+      - echo "terraform init & plan"
+      - terraform -chdir=terraform init
+      - terraform plan
   build:
     commands:
       - echo "terraform destroy"
-      - echo $(terraform -chdir=terraform destroy -auto-approve -var AWS_SECRET_KEY=${SecretKey} -var AWS_ACCESS_KEY=${AccessKey})
+      - terraform -chdir=terraform destroy -auto-approve -var AWS_SECRET_KEY=${SecretKey} -var AWS_ACCESS_KEY=${AccessKey}

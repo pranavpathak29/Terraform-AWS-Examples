@@ -6,11 +6,11 @@ phases:
       - echo "installing prerequisites"
       - chmod -R 777 ./
       - echo $(scripts/install.sh)
-      - echo ${terraform -chdir=terraform init}
   pre_build:
     commands:
-      - echo "terraform plan"
-      - echo $(terraform plan)
+      - echo "terraform init & plan"
+      - terraform -chdir=terraform init
+      - terraform plan
   build:
     commands:
       - echo "terraform apply"
