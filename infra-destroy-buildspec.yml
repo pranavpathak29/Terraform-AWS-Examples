@@ -6,6 +6,7 @@ phases:
       - echo "installing prerequisites"
       - chmod -R 777 ./
       - echo $(scripts/install.sh)
+      - echo ${terraform -chdir=terraform init}
   build:
     commands:
       - echo "terraform destroy"
