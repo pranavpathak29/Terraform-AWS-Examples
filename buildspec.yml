@@ -1,0 +1,16 @@
+version: 0.2
+
+phases:
+  install:
+    commands:
+      - echo "installing ec2 sample project"
+  pre_build:
+    commands:
+      - echo "pre-build ec2 sample project"
+  build:
+    commands:
+      - echo "build ec2 sample project"
+      - grep -FQ "test" src/index.html
+  post_build:
+    commands:
+      - echo "post-build ec2 sample project"
