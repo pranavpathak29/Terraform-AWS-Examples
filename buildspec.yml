@@ -4,10 +4,7 @@ phases:
   install:
     commands:
       - echo "installing prerequisites"
-      - echo "AccessKey ${AccessKey}"
-      - echo "Secret ${Secret}"
   build:
     commands:
       - echo "build ec2 sample project"
-      - echo ${cat src/index.html}
       - grep -FQ "EC2" src/index.html

@@ -1,6 +1,5 @@
 terraform {
   backend "s3" {
-    # acl                  = "bucket-owner-full-controll"
     bucket               = "aws-terraform-stages"
     key                  = "aws-ec2-simple"
     region               = "ap-south-1"
