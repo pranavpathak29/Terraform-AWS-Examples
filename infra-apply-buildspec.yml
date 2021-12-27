@@ -4,7 +4,7 @@ phases:
   install:
     commands:
       - echo "installing prerequisites"
-      - chmod -R 777 \$PWD/*
+      - chmod -R 777 ./
       - echo $(scripts/install.sh)
   pre_build:
     commands:
@@ -13,4 +13,4 @@ phases:
   build:
     commands:
       - echo "terraform apply"
-      - echo $(terraform apply -auto-approve -var AWS_SECRET_KEY=${SecretKey} -var AWS_ACCESS_KEY=${AccessKey})
+      - echo $(terraform -chdir=terraform apply -auto-approve -var AWS_SECRET_KEY=${SecretKey} -var AWS_ACCESS_KEY=${AccessKey})
