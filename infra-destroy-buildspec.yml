@@ -9,8 +9,8 @@ phases:
   pre_build:
     commands:
       - echo "terraform init & plan"
-      - terraform -chdir=terraform init
-      - terraform plan
+      - terraform -chdir=terraform init -var AWS_SECRET_KEY=${SecretKey} -var AWS_ACCESS_KEY=${AccessKey}
+      - terraform plan -var AWS_SECRET_KEY=${SecretKey} -var AWS_ACCESS_KEY=${AccessKey}
   build:
     commands:
       - echo "terraform destroy"

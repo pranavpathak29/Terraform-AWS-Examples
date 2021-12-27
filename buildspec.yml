@@ -7,4 +7,3 @@ phases:
   build:
     commands:
       - echo "build ec2 sample project"
-      - grep -FQ "EC2" src/index.html
