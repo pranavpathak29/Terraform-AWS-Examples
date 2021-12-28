@@ -1,9 +1,0 @@
-version: 0.2
-
-phases:
-  install:
-    commands:
-      - echo "installing prerequisites"
-  build:
-    commands:
-      - echo "build ec2 sample project"
