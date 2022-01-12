@@ -19,7 +19,7 @@ data "aws_iam_policy_document" "queue_policy_document" {
 }
 
 resource "aws_sqs_queue" "queue" {
-  name                        = "my-queue.fifo"
+  name                        = var.AWS_SQS_NAME
   visibility_timeout_seconds  = "20"
   message_retention_seconds   = "345600"
   max_message_size            = "262144"

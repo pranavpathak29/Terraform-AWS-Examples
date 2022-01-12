@@ -28,7 +28,7 @@ data "aws_iam_policy_document" "queue_policy_document" {
     condition {
       test     = "StringEquals"
       variable = "aws:SourceArn"
-      values   = [aws_sns_topic.my_topics.arn]
+      values   = [aws_sns_topic.topic.arn]
     }
   }
 }
@@ -50,7 +50,7 @@ data "aws_iam_policy_document" "topic_policy_document" {
       type        = "AWS"
       identifiers = ["*"]
     }
-    resources = [aws_sns_topic.my_topics.arn]
+    resources = [aws_sns_topic.topic.arn]
     condition {
       test     = "StringEquals"
       variable = "aws:SourceAccount"
@@ -74,17 +74,17 @@ resource "aws_sqs_queue_policy" "queue_policy" {
 }
 
 
-resource "aws_sns_topic" "my_topics" {
-  name = "my_topics"
+resource "aws_sns_topic" "topic" {
+  name = var.AWS_TOPIC_NAME
 }
 
-resource "aws_sns_topic_subscription" "my_sqs_target" {
-  topic_arn = aws_sns_topic.my_topics.arn
+resource "aws_sns_topic_subscription" "sqs_target" {
+  topic_arn = aws_sns_topic.topic.arn
   protocol  = "sqs"
   endpoint  = aws_sqs_queue.queue.arn
 }
 
 resource "aws_sns_topic_policy" "topic_policy" {
-  arn    = aws_sns_topic.my_topics.arn
+  arn    = aws_sns_topic.topic.arn
   policy = data.aws_iam_policy_document.topic_policy_document.json
 }

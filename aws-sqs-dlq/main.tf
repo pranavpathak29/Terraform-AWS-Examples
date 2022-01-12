@@ -19,7 +19,7 @@ data "aws_iam_policy_document" "queue_policy_document" {
 }
 
 resource "aws_sqs_queue" "dead_letter_queue" {
-  name                       = "dead_letter_queue"
+  name                       = var.AWS_DLD_SQS_NAME
   visibility_timeout_seconds = "30"
   message_retention_seconds  = "345600"
   max_message_size           = "262144"
@@ -28,7 +28,7 @@ resource "aws_sqs_queue" "dead_letter_queue" {
 }
 
 resource "aws_sqs_queue" "queue" {
-  name                       = "my-queue"
+  name                       = var.AWS_SQS_NAME
   visibility_timeout_seconds = "4"
   message_retention_seconds  = "345600"
   max_message_size           = "262144"
