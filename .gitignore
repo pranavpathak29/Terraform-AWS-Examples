@@ -34,3 +34,6 @@ override.tf.json
 .terraformrc
 .terraform.*
 terraform.rc
+
+**/node_modules
+**/*.zip
