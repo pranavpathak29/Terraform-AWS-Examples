@@ -1,0 +1,49 @@
+//To Create Zip on windows using powershell
+
+Compress-Archive -Path .\function\ -DestinationPath .\function.zip -Force
+
+//Sample Events
+
+//To Create
+
+{
+  "type": "save",
+  "data":{
+      "org_id":1,
+      "emp_id":1,
+      "salary":200,
+      "name":"John"
+  }
+}
+
+// To Fetch All
+
+{
+  "type": "fetch"
+}
+
+//To Fetch By Property
+
+{
+  "type": "fetch",
+  "query": {
+      "org_id":1,
+  }
+}
+//OR
+{
+  "type": "fetch",
+  "query": {
+      "org_id":1,
+      "emp_id":1
+  }
+}
+
+//To Delete
+
+{
+  "type": "delete",
+  "query": {
+      "org_id":1
+  }
+}
