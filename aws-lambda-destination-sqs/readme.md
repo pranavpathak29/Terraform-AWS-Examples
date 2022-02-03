@@ -22,11 +22,11 @@ terraform apply
 ##### Success 
 Execute following using AWS-CLI
 ```sh
-aws lambda invoke --function-name Lambda-Event-Source-Mapping-SQS  --invocation-type Event --cli-binary-format raw-in-base64-out --payload '{ "type": "success" }' response.json
+aws lambda invoke --function-name <lambda-name>  --invocation-type Event --cli-binary-format raw-in-base64-out --payload '{ "type": "success" }' response.json
 ```
 
 ##### Failure 
 Execute following using AWS-CLI
 ```sh
-aws lambda invoke --function-name Lambda-Event-Source-Mapping-SQS  --invocation-type Event --cli-binary-format raw-in-base64-out --payload '{ "type": "error" }' response.json
+aws lambda invoke --function-name <lambda-name>  --invocation-type Event --cli-binary-format raw-in-base64-out --payload '{ "type": "error" }' response.json
 ```
