@@ -24,3 +24,7 @@ terraform init
 terraform apply
 terraform destroy
 ```
+
+### Step Function Graph
+
+![Create Account Graph](https://github.com/pranavpathak29/aws-ec2/blob/main/aws-step-function-lambda-sqs/stepfunctions_graph.svg)
