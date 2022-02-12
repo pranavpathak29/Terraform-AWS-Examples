@@ -79,11 +79,6 @@ resource "aws_sns_topic_subscription" "admin_target" {
 
 }
 
-# resource "aws_sns_topic_policy" "admin_topic_policy" {
-#   arn    = aws_sns_topic.admin_topic.arn
-#   policy = data.aws_iam_policy_document.topic_policy_document.json
-# }
-
 resource "aws_sns_topic" "failure_topic" {
   name = "Create-Account-Failures"
 }
@@ -93,11 +88,6 @@ resource "aws_sns_topic_subscription" "failure_sqs_target" {
   protocol  = "sqs"
   endpoint  = aws_sqs_queue.failure_queue.arn
 }
-
-# resource "aws_sns_topic_policy" "topic_policy" {
-#   arn    = aws_sns_topic.failure_topic.arn
-#   policy = data.aws_iam_policy_document.topic_policy_document.json
-# }
 
 # -------------- SQS ---------------
 
@@ -236,19 +226,3 @@ resource "aws_sfn_state_machine" "sfn_state_machine" {
   }
 
 }
-
-# resource "aws_lambda_permission" "allow_state_machine_to_invoke_create_account" {
-#   statement_id  = "AllowExecutionFromStateMachine"
-#   action        = "lambda:InvokeFunction"
-#   function_name = aws_lambda_function.create_account.function_name
-#   principal     = "states.amazonaws.com"
-#   source_arn    = aws_sfn_state_machine.sfn_state_machine.arn
-# }
-
-# resource "aws_lambda_permission" "allow_state_machine_to_invoke_activate_account" {
-#   statement_id  = "AllowExecutionFromStateMachine"
-#   action        = "lambda:InvokeFunction"
-#   function_name = aws_lambda_function.activate_account.function_name
-#   principal     = "states.amazonaws.com"
-#   source_arn    = aws_sfn_state_machine.sfn_state_machine.arn
-# }
